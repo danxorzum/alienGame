@@ -23,27 +23,13 @@ public class BasicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.position = new Vector3(transform.position.x-m_speed*Time.deltaTime, transform.position.y, 0);
-        //}
-        //ielse f(Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    transform.position = new Vector3(transform.position.x+m_speed*Time.deltaTime, transform.position.y, 0);
-        //}
-
-        //if(Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y+m_speed*Time.deltaTime, 0);
-        //}
-        //ielse f(Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y-m_speed*Time.deltaTime, 0);
-        //}
+       // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Input.mousePosition;
+       // mousePos.y = 0;
+        Debug.Log(mousePos);
+        transform.LookAt(mousePos);
 
         if (m_input == null) return;
-
-        //transform.Translate(new Vector3(Input.GetAxis("Horizontal") * (m_speed*Time.deltaTime),Input.GetAxis("Vertical")*(m_speed*Time.deltaTime),0));
         transform.Translate(new Vector3(m_input.GetAxis.x *(m_speed.x * Time.deltaTime),
             m_input.GetAxis.y * (m_speed.y * Time.deltaTime), 0));
     }

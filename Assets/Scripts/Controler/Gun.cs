@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     public float m_KerFramePoint = 0.5f;
     private void Start()
     {
-        m_input = transform.parent.gameObject.GetComponent<InputHandler>();
+        m_input = gameObject.GetComponent<InputHandler>();
     }
     public void Shoot()
     {

@@ -11,6 +11,7 @@ public class PCInputs : InputHandler
     void Update()
     {
         m_axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        m_fireButton = Input.GetButton("Jump");
+        m_fireButton = Input.GetMouseButtonDown(0);
+        m_second_fireButton = Input.GetMouseButtonDown(1);
     }
 }

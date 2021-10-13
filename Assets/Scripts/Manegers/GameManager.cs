@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
    
     private static GameManager m_instance;
+    public float time;
 
     public static GameManager Instance
     {
@@ -30,11 +31,17 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        time *= 60;
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void LevelInitialization(LevelManager lm)
     {
         m_currentLevelManager = lm;
+    }
+    private void Update()
+    {
+        Debug.Log(time);
+        time -= Time.deltaTime;
     }
 }
