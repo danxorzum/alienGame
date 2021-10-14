@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicController : MonoBehaviour
 {
     public Vector2 m_speed = new Vector2(10.0f, 10.0f);
-
+   
     private InputHandler m_input;
   
     void Awake()
@@ -23,11 +23,8 @@ public class BasicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 mousePos = Input.mousePosition;
-       // mousePos.y = 0;
-        Debug.Log(mousePos);
-        transform.LookAt(mousePos);
+       
+       
 
         if (m_input == null) return;
         transform.Translate(new Vector3(m_input.GetAxis.x *(m_speed.x * Time.deltaTime),
