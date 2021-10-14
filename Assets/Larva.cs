@@ -27,12 +27,6 @@ public class Larva : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void Move()
     {
         _direction = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
@@ -40,7 +34,7 @@ public class Larva : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.layer == 6) collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
 }

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(time);
+       // Debug.Log(time);
         time -= Time.deltaTime;
     }
 }
