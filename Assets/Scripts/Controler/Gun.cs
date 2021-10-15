@@ -17,7 +17,8 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        Instantiate(m_bullet, m_spawnpoint.position,m_spawnpoint.rotation);
+        Bullet bulllet = Instantiate(m_bullet, m_spawnpoint.position,m_spawnpoint.rotation).GetComponent<Bullet>();
+        bulllet.Shoot(1000);
 
     }
 

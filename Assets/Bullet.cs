@@ -21,6 +21,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        col = true;
+        Destroy(gameObject);
+    }
     public void  Shoot(float speed)
     {
         _rb.AddRelativeForce(Vector3.up * speed);

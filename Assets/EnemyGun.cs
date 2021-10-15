@@ -4,55 +4,34 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour
 {
-    public float coolDown;
-    public GameObject bullet;
+    public float power;
+    public GameObject enemyBullet;
 
     private float _timeTarget;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Bean()
     {
-        _timeTarget = Time.timeSinceLevelLoad + coolDown;
-           StartCoroutine(SpiralShoot(1));
-           // StartCoroutine(SpiralShoot(1,false,0.8f));
-
-
-    // Update is called once per frame
-    }
-    void Update()
-    {
-        if(Time.timeSinceLevelLoad> _timeTarget)
-        {
-            //CircularShoot(30);
-            Flower(40);
-            //Bean();
-        _timeTarget = Time.timeSinceLevelLoad + coolDown;
-        }
-    }
-
-
-    private void Bean()
-    {
-        Bullet newBul = Instantiate(bullet, transform.position,transform.rotation).GetComponent<Bullet>();
+        EnemyBullet newBul = Instantiate(enemyBullet, transform.position,transform.rotation).GetComponent<EnemyBullet>();
         StartCoroutine(newBul.CurveShoot(250, 2));
     }
-    private void CircularShoot(int bulletNumber)
+    public void CircularShoot(int EnemyBulletNumber)
     {
-        float angle = 360 / bulletNumber;
-        for(int i = 1; i <= bulletNumber; i++)
+        float angle = 360 / EnemyBulletNumber;
+        for(int i = 1; i <= EnemyBulletNumber; i++)
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*angle, Vector3.forward);
-            Instantiate(bullet, transform.position, rotation);
+            Instantiate(enemyBullet, transform.position, rotation);
         }
         
-    }private void Flower(int bulletNumber)
+    }public void Flower(int EnemyBulletNumber)
     {
-        float angle = 360 / bulletNumber;
-        for(int i = 1; i <= bulletNumber; i++)
+        float angle = 360 / EnemyBulletNumber;
+        for(int i = 1; i <= EnemyBulletNumber; i++)
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*angle, Vector3.forward);
-            Bullet newBul= Instantiate(bullet, transform.position, rotation).GetComponent<Bullet>();
+            EnemyBullet newBul= Instantiate(enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
             newBul.Shoot( SinFlower(angle * i,5));
 
         }
@@ -62,7 +41,7 @@ public class EnemyGun : MonoBehaviour
     private float SinFlower(float x, int petal=6) => 250 - 100 * Mathf.Abs( Mathf.Sin(petal * x * Mathf.PI / 360));
 
 
-    private IEnumerator SpiralShoot(float duration, bool inverse=false, float delay=0)
+    public IEnumerator SpiralShoot(float duration, bool inverse=false, float delay=0)
     {
         if(delay>0) yield return new WaitForSeconds(delay);
         float lapse = duration / 60;
@@ -70,10 +49,25 @@ public class EnemyGun : MonoBehaviour
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*6, inverse? Vector3.back:Vector3.forward);
-            Bullet newBul = Instantiate(bullet, transform.position, rotation).GetComponent<Bullet>();
+            EnemyBullet newBul = Instantiate(enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
             newBul.Shoot(250);
                 yield return new WaitForSeconds(lapse);
         }
         StartCoroutine(SpiralShoot(duration,!inverse,delay==0?0.8f:0));
+    }
+
+    public void TripleShoot(int angleIncress)
+    {
+
+      
+       EnemyBullet bull= Instantiate(enemyBullet, transform.position, transform.rotation).GetComponent<EnemyBullet>();
+        Quaternion rotation2= Quaternion.AngleAxis( -angleIncress, Vector3.forward);
+        EnemyBullet EnemyBullet2 = Instantiate(enemyBullet, transform.position, transform.rotation * rotation2).GetComponent<EnemyBullet>();
+        Quaternion rotation3= Quaternion.AngleAxis( angleIncress, Vector3.forward);
+        EnemyBullet EnemyBullet3 = Instantiate(enemyBullet, transform.position, transform.rotation * rotation3).GetComponent<EnemyBullet>();
+
+        bull.Shoot(power);
+        EnemyBullet2.Shoot(power);
+        EnemyBullet3.Shoot(power);
     }
 }
