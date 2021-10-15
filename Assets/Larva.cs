@@ -30,7 +30,7 @@ public class Larva : MonoBehaviour
     private void Move()
     {
         _direction = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
-        _rb.AddForce(_direction * force*10);
+        _rb.AddForce(_direction * force*250);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -12,7 +12,7 @@ public class EnemyGun : MonoBehaviour
     void Start()
     {
         _timeTarget = Time.timeSinceLevelLoad + coolDown;
-           // StartCoroutine(SpiralShoot(1));
+           StartCoroutine(SpiralShoot(1));
            // StartCoroutine(SpiralShoot(1,false,0.8f));
 
 
@@ -23,11 +23,18 @@ public class EnemyGun : MonoBehaviour
         if(Time.timeSinceLevelLoad> _timeTarget)
         {
             //CircularShoot(30);
-            Flower(60);
+            Flower(40);
+            //Bean();
         _timeTarget = Time.timeSinceLevelLoad + coolDown;
         }
     }
 
+
+    private void Bean()
+    {
+        Bullet newBul = Instantiate(bullet, transform.position,transform.rotation).GetComponent<Bullet>();
+        StartCoroutine(newBul.CurveShoot(250, 2));
+    }
     private void CircularShoot(int bulletNumber)
     {
         float angle = 360 / bulletNumber;
@@ -46,14 +53,13 @@ public class EnemyGun : MonoBehaviour
 
             Quaternion rotation = Quaternion.AngleAxis(i*angle, Vector3.forward);
             Bullet newBul= Instantiate(bullet, transform.position, rotation).GetComponent<Bullet>();
-            print(SinFlower(angle * i,5));
-            newBul.Shoot(250 - 100 * SinFlower(angle * i,5));
+            newBul.Shoot( SinFlower(angle * i,5));
 
         }
         
     }
 
-    private float SinFlower(float x, int petal=6) => Mathf.Abs( Mathf.Sin(petal * x * Mathf.PI / 360));
+    private float SinFlower(float x, int petal=6) => 250 - 100 * Mathf.Abs( Mathf.Sin(petal * x * Mathf.PI / 360));
 
 
     private IEnumerator SpiralShoot(float duration, bool inverse=false, float delay=0)
@@ -64,7 +70,8 @@ public class EnemyGun : MonoBehaviour
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*6, inverse? Vector3.back:Vector3.forward);
-            Instantiate(bullet, transform.position, rotation);               
+            Bullet newBul = Instantiate(bullet, transform.position, rotation).GetComponent<Bullet>();
+            newBul.Shoot(250);
                 yield return new WaitForSeconds(lapse);
         }
         StartCoroutine(SpiralShoot(duration,!inverse,delay==0?0.8f:0));

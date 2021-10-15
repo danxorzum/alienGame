@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDown: 2
-  bullet: {fileID: 182780380549358843, guid: cc9f002a6c97e254482bf6c65a450120, type: 3}
+  bullet: {fileID: 2045554431300599737, guid: 78cfaf473dfd51645a5e907a18d5fc4f, type: 3}
 --- !u!212 &813272171
 SpriteRenderer:
   m_ObjectHideFlags: 0
