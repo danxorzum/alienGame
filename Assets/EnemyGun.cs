@@ -5,13 +5,16 @@ using UnityEngine;
 public class EnemyGun : MonoBehaviour
 {
     public float power;
-    public GameObject enemyBullet;
 
-    private float _timeTarget;
+    private GameObject _enemyBullet;
 
+    private void Awake()
+    {
+        _enemyBullet = Resources.Load<GameObject>("Prefab/EnemyBullet");
+    }
     public void Bean()
     {
-        EnemyBullet newBul = Instantiate(enemyBullet, transform.position,transform.rotation).GetComponent<EnemyBullet>();
+        EnemyBullet newBul = Instantiate(_enemyBullet, transform.position,transform.rotation).GetComponent<EnemyBullet>();
         StartCoroutine(newBul.CurveShoot(250, 2));
     }
     public void CircularShoot(int EnemyBulletNumber)
@@ -21,7 +24,7 @@ public class EnemyGun : MonoBehaviour
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*angle, Vector3.forward);
-            Instantiate(enemyBullet, transform.position, rotation);
+            Instantiate(_enemyBullet, transform.position, rotation);
         }
         
     }public void Flower(int EnemyBulletNumber)
@@ -31,7 +34,7 @@ public class EnemyGun : MonoBehaviour
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*angle, Vector3.forward);
-            EnemyBullet newBul= Instantiate(enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
+            EnemyBullet newBul= Instantiate(_enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
             newBul.Shoot( SinFlower(angle * i,5));
 
         }
@@ -49,7 +52,7 @@ public class EnemyGun : MonoBehaviour
         {
 
             Quaternion rotation = Quaternion.AngleAxis(i*6, inverse? Vector3.back:Vector3.forward);
-            EnemyBullet newBul = Instantiate(enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
+            EnemyBullet newBul = Instantiate(_enemyBullet, transform.position, rotation).GetComponent<EnemyBullet>();
             newBul.Shoot(250);
                 yield return new WaitForSeconds(lapse);
         }
@@ -58,13 +61,13 @@ public class EnemyGun : MonoBehaviour
 
     public void TripleShoot(int angleIncress)
     {
-
+        
       
-       EnemyBullet bull= Instantiate(enemyBullet, transform.position, transform.rotation).GetComponent<EnemyBullet>();
-        Quaternion rotation2= Quaternion.AngleAxis( -angleIncress, Vector3.forward);
-        EnemyBullet EnemyBullet2 = Instantiate(enemyBullet, transform.position, transform.rotation * rotation2).GetComponent<EnemyBullet>();
-        Quaternion rotation3= Quaternion.AngleAxis( angleIncress, Vector3.forward);
-        EnemyBullet EnemyBullet3 = Instantiate(enemyBullet, transform.position, transform.rotation * rotation3).GetComponent<EnemyBullet>();
+       EnemyBullet bull= Instantiate(_enemyBullet, transform.position, transform.rotation * Quaternion.Euler(0,0,-90)).GetComponent<EnemyBullet>();
+        Quaternion rotation2= Quaternion.AngleAxis( -angleIncress, Vector3.forward) *Quaternion.Euler(0, 0, -90);
+        EnemyBullet EnemyBullet2 = Instantiate(_enemyBullet, transform.position, transform.rotation * rotation2).GetComponent<EnemyBullet>();
+        Quaternion rotation3= Quaternion.AngleAxis( angleIncress, Vector3.forward) * Quaternion.Euler(0, 0, -90);
+        EnemyBullet EnemyBullet3 = Instantiate(_enemyBullet, transform.position, transform.rotation * rotation3).GetComponent<EnemyBullet>();
 
         bull.Shoot(power);
         EnemyBullet2.Shoot(power);

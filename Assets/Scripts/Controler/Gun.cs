@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
 {
     public Transform m_spawnpoint;
     public GameObject m_bullet;
+    public Transform gun;
 
     private InputHandler m_input;
 
@@ -17,7 +18,7 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        Bullet bulllet = Instantiate(m_bullet, m_spawnpoint.position,m_spawnpoint.rotation).GetComponent<Bullet>();
+        Bullet bulllet = Instantiate(m_bullet, gun.position,gun.rotation).GetComponent<Bullet>();
         bulllet.Shoot(1000);
 
     }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public int lives;
     public float hurtsCd;
+    public Animator _animator;
 
     private float _inter;
     // Start is called before the first frame update
@@ -13,6 +15,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _inter = Time.timeSinceLevelLoad;
+        _animator = GetComponentInChildren<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -41,8 +44,8 @@ public class Player : MonoBehaviour
     }
     private void Hurt()
     {
+        _animator.Play("player_hurt");
         lives--;
-        print("auch");
-        if (lives <= 0) Destroy(gameObject);
+        if (lives <= 0) SceneManager.LoadScene(2); ;
     }
 }
