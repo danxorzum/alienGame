@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087766b20b5bec24aaea67b61060b4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 2
+  lives: 1
   animator: {fileID: 5594433189324692963}
   diedAnim: larva_die
 --- !u!1 &7329087603673140921
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3974431401525297811}
   - component: {fileID: 3801790354868908488}
   - component: {fileID: 5594433189324692963}
+  - component: {fileID: 1656038404645413912}
   m_Layer: 7
   m_Name: Monstruo 3_0
   m_TagString: Untagged
@@ -218,3 +219,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1656038404645413912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329087603673140921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1635b694779af0f49b8e93c5cce700f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

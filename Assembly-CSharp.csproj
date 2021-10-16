@@ -53,34 +53,37 @@
     <UnityVersion>2021.1.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Us_Sniper.cs" />
     <Compile Include="Assets\Scripts\Controler\Gun.cs" />
     <Compile Include="Assets\Scripts\Manegers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manegers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Controler\LimitBehaviour\LimitDestroy.cs" />
-    <Compile Include="Assets\Razo.cs" />
+    <Compile Include="Assets\Scripts\Razo.cs" />
     <Compile Include="Assets\Scripts\Inputs\PCInputs.cs" />
-    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Controler\LimitBehaviour\PacmanMovement.cs" />
+    <Compile Include="Assets\Scripts\SceneHandler.cs" />
     <Compile Include="Assets\Scripts\Inputs\NPCInputs.cs" />
-    <Compile Include="Assets\TargetMouse.cs" />
-    <Compile Include="Assets\Bullet.cs" />
-    <Compile Include="Assets\Larva.cs" />
+    <Compile Include="Assets\Scripts\TargetMouse.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Larva.cs" />
+    <Compile Include="Assets\Scripts\Chaser.cs" />
     <Compile Include="Assets\Scripts\NPC\NPCMovement.cs" />
-    <Compile Include="Assets\EnemyBullet.cs" />
+    <Compile Include="Assets\Scripts\EnemyBullet.cs" />
+    <Compile Include="Assets\Scripts\BouncingMan.cs" />
     <Compile Include="Assets\Scripts\Controler\LimitBehaviour\LimitMovement.cs" />
     <Compile Include="Assets\Scripts\TriggerDetection\TiiggerDetection.cs" />
     <Compile Include="Assets\Scripts\Inputs\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Inputs\TouchInputs.cs" />
     <Compile Include="Assets\Scripts\TriggerDetection\OnTriggerDetectionEnemy.cs" />
-    <Compile Include="Assets\Oribter.cs" />
+    <Compile Include="Assets\Scripts\Oribter.cs" />
     <Compile Include="Assets\Scripts\Controler\LimitBehaviour\LimitRandom.cs" />
     <Compile Include="Assets\Scripts\Controler\BasicController.cs" />
-    <Compile Include="Assets\EnemyGun.cs" />
-    <Compile Include="Assets\Us_Sniper.cs" />
-    <Compile Include="Assets\Chaser.cs" />
-    <Compile Include="Assets\BouncingMan.cs" />
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\SceneHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyGun.cs" />
+    <Compile Include="Assets\Scripts\AnimationCallbacks.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\UiTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

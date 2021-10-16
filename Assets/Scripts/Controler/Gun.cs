@@ -7,7 +7,9 @@ public class Gun : MonoBehaviour
     public Transform m_spawnpoint;
     public GameObject m_bullet;
     public Transform gun;
+    public float power;
 
+    AudioSource audio;
     private InputHandler m_input;
 
     public float m_coldDownDuration = 0.5f;
@@ -15,11 +17,13 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         m_input = gameObject.GetComponent<InputHandler>();
+        audio= gameObject.GetComponent<AudioSource>();
     }
     public void Shoot()
     {
+        audio.Play();
         Bullet bulllet = Instantiate(m_bullet, gun.position,gun.rotation).GetComponent<Bullet>();
-        bulllet.Shoot(1000);
+        bulllet.Shoot(power);
 
     }
 

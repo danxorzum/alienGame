@@ -6,7 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-   
+    public Player player;
+    public GameObject l1;
+    public GameObject l2;
+    public GameObject l3;
+    public GameObject l4;
+    public GameObject l5;
+
     private static GameManager m_instance;
     public float time;
 
@@ -31,7 +37,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
-        time *= 60;
+        time = 300;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -41,7 +47,15 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-       // Debug.Log(time);
+        switch (player.lives)
+        {
+            case 4: l5.active = false;break;
+            case 3: l4.active = false;break;
+            case 2: l3.active = false;break;
+            case 1: l2.active = false;break;
+           
+        }
         time -= Time.deltaTime;
     }
+    public int GetTime() => (int)time;
 }

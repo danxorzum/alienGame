@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443625075757656166}
   - component: {fileID: 3092420717703538765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: enemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,11 +92,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2181075054242092401}
-  - component: {fileID: 3811152585805085398}
   - component: {fileID: 8959895436852138797}
   - component: {fileID: 7652443811799804900}
   - component: {fileID: 7975848177603495832}
-  m_Layer: 7
+  - component: {fileID: 2259764881190641008}
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,22 +118,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3811152585805085398
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8226446582326612896}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.99
 --- !u!50 &8959895436852138797
 Rigidbody2D:
   serializedVersion: 4
@@ -275,3 +259,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!70 &2259764881190641008
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226446582326612896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.88, y: 2.44}
+  m_Direction: 0
